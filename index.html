@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Six Hungry Beasts – Online Practice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7fb;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #5a3fa3;
+    }
+    .box {
+      background: #ffffff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    input[type="text"] {
+      padding: 5px;
+      font-size: 14px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 6px 12px;
+      background: #5a3fa3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .feedback {
+      font-weight: bold;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>The Six Hungry Beasts – Online Practice</h1>
+
+<p><strong>This practice will help you review vocabulary and understand the story.</strong><br>
+Take your time. This is practice, not a test.</p>
+
+<!-- ================= SPELLING ================= -->
+
+<div class="box">
+<h2>Part 1: Spelling Practice (Unscramble the Words)</h2>
+<p>Look at the meaning. Unscramble the letters to spell the word.</p>
+
+<ol>
+<li>A wild animal  
+<br><strong>tseab</strong> → <input id="s1"> <span id="f1" class="feedback"></span></li>
+
+<li>A big meal  
+<br><strong>tsfea</strong> → <input id="s2"> <span id="f2" class="feedback"></span></li>
+
+<li>A large animal foot  
+<br><strong>wpa</strong> → <input id="s3"> <span id="f3" class="feedback"></span></li>
+
+<li>Very big  
+<br><strong>esivasm</strong> → <input id="s4"> <span id="f4" class="feedback"></span></li>
+
+<li>Soft and easy to eat  
+<br><strong>rednet</strong> → <input id="s5"> <span id="f5" class="feedback"></span></li>
+
+<li>Not moving  
+<br><strong>fitsf</strong> → <input id="s6"> <span id="f6" class="feedback"></span></li>
+
+<li>Feeling worried  
+<br><strong>vsreonu</strong> → <input id="s7"> <span id="f7" class="feedback"></span></li>
+
+<li>Happily  
+<br><strong>ylufrehcee</strong> → <input id="s8"> <span id="f8" class="feedback"></span></li>
+
+<li>Not wanting to  
+<br><strong>yltnculereta</strong> → <input id="s9"> <span id="f9" class="feedback"></span></li>
+
+<li>To look for animals to eat  
+<br><strong>tnuh</strong> → <input id="s10"> <span id="f10" class="feedback"></span></li>
+
+<li>To let something fall  
+<br><strong>pord</strong> → <input id="s11"> <span id="f11" class="feedback"></span></li>
+
+<li>To act like something is true when it is not  
+<br><strong>dnertpe</strong> → <input id="s12"> <span id="f12" class="feedback"></span></li>
+
+<li>A small animal like a rabbit  
+<br><strong>raeh</strong> → <input id="s13"> <span id="f13" class="feedback"></span></li>
+
+<li>A steep edge of land  
+<br><strong>fifcl</strong> → <input id="s14"> <span id="f14" class="feedback"></span></li>
+
+<li>A clever animal in the story  
+<br><strong>nrtaem</strong> → <input id="s15"> <span id="f15" class="feedback"></span></li>
+</ol>
+
+<button onclick="checkSpelling()">Check Answers</button>
+</div>
+
+<!-- ================= CONTEXT ================= -->
+
+<div class="box">
+<h2>Part 2: Use the Word in Context</h2>
+
+<p>Choose the best word to complete each sentence.</p>
+
+<ol>
+<li>The wolf is a hungry _______.  
+<select id="c1">
+<option>---</option><option>beast</option><option>feast</option>
+</select></li>
+
+<li>The bear wanted a big _______.  
+<select id="c2">
+<option>---</option><option>feast</option><option>cliff</option>
+</select></li>
+
+<li>The bear has a _______ paw.  
+<select id="c3">
+<option>---</option><option>massive</option><option>nervous</option>
+</select></li>
+
+<li>The fox went to _______ for food.  
+<select id="c4">
+<option>---</option><option>hunt</option><option>drop</option>
+</select></li>
+
+<li>The fox decided to _______ to be dead.  
+<select id="c5">
+<option>---</option><option>pretend</option><option>feast</option>
+</select></li>
+
+<li>The crow was _______ when she flew close.  
+<select id="c6">
+<option>---</option><option>nervous</option><option>cheerfully</option>
+</select></li>
+
+<li>The fox smiled _______.  
+<select id="c7">
+<option>---</option><option>cheerfully</option><option>reluctantly</option>
+</select></li>
+
+<li>The fox let the crow _______.  
+<select id="c8">
+<option>---</option><option>drop</option><option>hunt</option>
+</select></li>
+
+<li>The crow agreed _______.  
+<select id="c9">
+<option>---</option><option>reluctantly</option><option>tender</option>
+</select></li>
+
+<li>The food would be very _______ to eat.  
+<select id="c10">
+<option>---</option><option>tender</option><option>massive</option>
+</select></li>
+</ol>
+</div>
+
+<!-- ================= COMPREHENSION ================= -->
+
+<div class="box">
+<h2>Part 3: Reading Comprehension</h2>
+
+<ol>
+<li>Why did the beasts want to eat the smallest animal?<br>
+<input type="radio" name="q1"> They were hungry<br>
+<input type="radio" name="q1"> They were bored
+</li><br>
+
+<li>What did the fox pretend to do?<br>
+<input type="radio" name="q2"> Pretend to be asleep<br>
+<input type="radio" name="q2"> Pretend to be dead
+</li><br>
+
+<li>Why did the crow fly down?<br>
+<input type="radio" name="q3"> To help the fox<br>
+<input type="radio" name="q3"> To get food
+</li><br>
+
+<li>What lesson does the story teach?<br>
+<input type="radio" name="q4"> Be clever but careful<br>
+<input type="radio" name="q4"> Always trust others
+</li>
+</ol>
+
+<p><strong>Great job!</strong> This practice will help you prepare for your quiz.</p>
+</div>
+
+<script>
+function checkSpelling() {
+  const answers = [
+    "beast","feast","paw","massive","tender","stiff",
+    "nervous","cheerfully","reluctantly","hunt","drop",
+    "pretend","hare","cliff","marten"
+  ];
+  for (let i = 0; i < answers.length; i++) {
+    const input = document.getElementById("s"+(i+1)).value.toLowerCase();
+    document.getElementById("f"+(i+1)).innerHTML =
+      input === answers[i] ? "✔" : "✖";
+  }
+}
+</script>
+
+</body>
+</html>
