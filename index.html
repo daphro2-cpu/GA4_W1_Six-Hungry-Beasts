@@ -1,212 +1,477 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>The Six Hungry Beasts – Online Practice</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f7fb;
-      padding: 20px;
-      line-height: 1.6;
+    body{
+      font-family: "Century Gothic", Arial, sans-serif;
+      background:#f7f7fb;
+      margin:0;
+      padding:20px;
+      line-height:1.6;
+      color:#222;
     }
-    h1, h2 {
-      color: #5a3fa3;
+    .container{
+      max-width:980px;
+      margin:0 auto;
     }
-    .box {
-      background: #ffffff;
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    .header{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      background:#ffffff;
+      padding:14px 16px;
+      border-radius:10px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+      margin-bottom:18px;
     }
-    input[type="text"] {
-      padding: 5px;
-      font-size: 14px;
+    .header img{
+      height:58px;
+      width:auto;
+      display:block;
     }
-    button {
-      margin-top: 10px;
-      padding: 6px 12px;
-      background: #5a3fa3;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+    h1{
+      margin:0;
+      font-size:26px;
+      color:#5a3fa3;
     }
-    .feedback {
-      font-weight: bold;
-      margin-left: 10px;
+    .sub{
+      margin:10px 0 0;
+      color:#444;
+      font-size:14px;
+    }
+    h2{
+      color:#5a3fa3;
+      margin:0 0 10px;
+      font-size:20px;
+    }
+    .box{
+      background:#fff;
+      padding:16px;
+      margin:0 0 18px;
+      border-radius:10px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    }
+    .note{
+      background:#f0edff;
+      border:1px solid rgba(90,63,163,0.25);
+      padding:10px 12px;
+      border-radius:8px;
+      font-size:14px;
+    }
+    ol{ margin: 8px 0 0 18px; }
+    li{ margin: 10px 0; }
+
+    .scramble{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      margin-top:6px;
+    }
+    .tiles{
+      display:inline-flex;
+      gap:6px;
+      flex-wrap:wrap;
+    }
+    .tile{
+      background:#5a3fa3;
+      color:#fff;
+      padding:4px 8px;
+      border-radius:6px;
+      font-weight:700;
+      letter-spacing:1px;
+      font-size:14px;
+    }
+    input[type="text"]{
+      padding:8px 10px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      font-size:14px;
+      width:220px;
+      font-family:inherit;
+    }
+    select{
+      padding:8px 10px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      font-size:14px;
+      font-family:inherit;
+    }
+    button{
+      padding:10px 14px;
+      background:#5a3fa3;
+      color:#fff;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:700;
+      font-family:inherit;
+    }
+    button.secondary{
+      background:#2b2b2b;
+    }
+    button:active{ transform: translateY(1px); }
+    .feedback{
+      font-weight:800;
+      margin-left:8px;
+    }
+    .good{ color:#138a36; }
+    .bad{ color:#b00020; }
+    .tiny{
+      font-size:12px;
+      color:#666;
+      margin-top:8px;
+    }
+    .scorebar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+      font-size:14px;
+    }
+    .pill{
+      background:#f7f7fb;
+      border:1px solid #e2e2ee;
+      padding:6px 10px;
+      border-radius:999px;
+    }
+    .footer{
+      text-align:center;
+      color:#666;
+      font-size:12px;
+      margin-top:18px;
+    }
+    .divider{
+      height:1px;
+      background:#ececf5;
+      margin:12px 0;
+    }
+    .qblock{
+      margin:10px 0 14px;
+      padding:10px 12px;
+      background:#fafafe;
+      border:1px solid #ececf5;
+      border-radius:10px;
+    }
+    .radioRow{
+      margin:6px 0;
+    }
+    .radioRow label{
+      cursor:pointer;
     }
   </style>
 </head>
 
 <body>
+<div class="container">
 
-<h1>The Six Hungry Beasts – Online Practice</h1>
+  <!-- ===== HEADER with LOGO =====
+    Put your logo file in the SAME folder as this index.html
+    Name it: logo.png (or change the filename below)
+  -->
+  <div class="header">
+    <img src="logo.png" alt="School Logo" />
+    <div>
+      <h1>The Six Hungry Beasts – Online Practice</h1>
+      <div class="sub">
+        Guided Reading Level K • Vocabulary + Context + Comprehension
+      </div>
+    </div>
+  </div>
 
-<p><strong>This practice will help you review vocabulary and understand the story.</strong><br>
-Take your time. This is practice, not a test.</p>
+  <div class="box">
+    <div class="note">
+      <strong>How to use this practice:</strong> This is review, not a test. Try your best.
+      You can click <strong>Check</strong> to see what you got right and what to fix before next week’s quiz.
+    </div>
+    <div class="tiny">
+      Teacher tip: upload <strong>index.html</strong> and <strong>logo.png</strong> to the same GitHub Pages folder.
+    </div>
+  </div>
 
-<!-- ================= SPELLING ================= -->
+  <!-- ================= SPELLING (15) ================= -->
+  <div class="box">
+    <h2>Part 1: Spelling Practice (Unscramble)</h2>
+    <p>Look at the meaning. Unscramble the letters and type the word.</p>
 
-<div class="box">
-<h2>Part 1: Spelling Practice (Unscramble the Words)</h2>
-<p>Look at the meaning. Unscramble the letters to spell the word.</p>
+    <ol>
+      <li>
+        Meaning: a wild animal
+        <div class="scramble">
+          <div class="tiles" aria-label="scrambled letters">
+            <span class="tile">t</span><span class="tile">s</span><span class="tile">e</span><span class="tile">a</span><span class="tile">b</span>
+          </div>
+          <div>Answer: <input id="s1" type="text" /></div>
+          <span id="f1" class="feedback"></span>
+        </div>
+      </li>
 
-<ol>
-<li>A wild animal  
-<br><strong>tseab</strong> → <input id="s1"> <span id="f1" class="feedback"></span></li>
+      <li>
+        Meaning: a big meal
+        <div class="scramble">
+          <div class="tiles">
+            <span class="tile">t</span><span class="tile">s</span><span class="tile">f</span><span class="tile">e</span><span class="tile">a</span>
+          </div>
+          <div>Answer: <input id="s2" type="text" /></div>
+          <span id="f2" class="feedback"></span>
+        </div>
+      </li>
 
-<li>A big meal  
-<br><strong>tsfea</strong> → <input id="s2"> <span id="f2" class="feedback"></span></li>
+      <li>
+        Meaning: a large animal foot
+        <div class="scramble">
+          <div class="tiles">
+            <span class="tile">w</span><span class="tile">p</span><span class="tile">a</span>
+          </div>
+          <div>Answer: <input id="s3" type="text" /></div>
+          <span id="f3" class="feedback"></span>
+        </div>
+      </li>
 
-<li>A large animal foot  
-<br><strong>wpa</strong> → <input id="s3"> <span id="f3" class="feedback"></span></li>
+      <li>
+        Meaning: very big
+        <div class="scramble">
+          <div class="tiles">
+            <span class="tile">e</span><span class="tile">s</span><span class="tile">i</span><span class="tile">v</span><span class="tile">a</span><span class="tile">s</span><span class="tile">m</span>
+          </div>
+          <div>Answer: <input id="s4" type="text" /></div>
+          <span id="f4" class="feedback"></span>
+        </div>
+      </li>
 
-<li>Very big  
-<br><strong>esivasm</strong> → <input id="s4"> <span id="f4" class="feedback"></span></li>
+      <li>
+        Meaning: soft and easy to eat
+        <div class="scramble">
+          <div class="tiles">
+            <span class="tile">r</span><span class="tile">e</span><span class="tile">d</span><span class="tile">n</span><span class="tile">e</span><span class="tile">t</span>
+          </div>
+          <div>Answer: <input id="s5" type="text" /></div>
+          <span id="f5" class="feedback"></span>
+        </div>
+      </li>
 
-<li>Soft and easy to eat  
-<br><strong>rednet</strong> → <input id="s5"> <span id="f5" class="feedback"></span></li>
+      <li>
+        Meaning: not moving
+        <div class="scramble">
+          <div class="tiles">
+            <span class="tile">f</span><span class="tile">i</span><span class="tile">t</span><span class="tile">s</span><span class="tile">f</span>
+          </div>
+          <div>Answer: <input id="s6" type="text" /></div>
+          <span id="f6" class="feedback"></span>
+        </div>
+      </li>
 
-<li>Not moving  
-<br><strong>fitsf</strong> → <input id="s6"> <span id="f6" class="feedback"></span></li>
+      <li>
+        Meaning: feeling worried
+        <div class="scramble">
+          <div class="tiles">
+            <span class="tile">v</span><span class="tile">s</span><span class="tile">r</span><span class="tile">e</span><span class="tile">o</span><span class="tile">u</span><span class="tile">n</span>
+          </div>
+          <div>Answer: <input id="s7" type="text" /></div>
+          <span id="f7" class="feedback"></span>
+        </div>
+      </li>
 
-<li>Feeling worried  
-<br><strong>vsreonu</strong> → <input id="s7"> <span id="f7" class="feedback"></span></li>
+      <li>
+        Meaning: happily
+        <div class="scramble">
+          <div class="tiles">
+            <span class="tile">y</span><span class="tile">l</span><span class="tile">u</span><span class="tile">f</span><span class="tile">r</span><span class="tile">e</span><span class="tile">h</span><span class="tile">c</span><span class="tile">e</span><span class="tile">e</span>
+          </div>
+          <div>Answer: <input id="s8" type="text" /></div>
+          <span id="f8" class="feedback"></span>
+        </div>
+      </li>
 
-<li>Happily  
-<br><strong>ylufrehcee</strong> → <input id="s8"> <span id="f8" class="feedback"></span></li>
+      <li>
+        Meaning: not wanting to
+        <div class="scramble">
+          <div class="tiles">
+            <span class="tile">y</span><span class="tile">l</span><span class="tile">t</span><span class="tile">n</span><span class="tile">c</span><span class="tile">u</span><span class="tile">l</span><span class="tile">e</span><span class="tile">t</span><span class="tile">a</span><span class="tile">r</span><span class="tile">a</span>
+          </div>
+          <div>Answer: <input id="s9" type="text" /></div>
+          <span id="f9" class="feedback"></span>
+        </div>
+      </li>
 
-<li>Not wanting to  
-<br><strong>yltnculereta</strong> → <input id="s9"> <span id="f9" class="feedback"></span></li>
+      <li>
+        Meaning: to look for animals to eat
+        <div class="scramble">
+          <div class="tiles">
+            <span class="tile">t</span><span class="tile">n</span><span class="tile">u</span><span class="tile">h</span>
+          </div>
+          <div>Answer: <input id="s10" type="text" /></div>
+          <span id="f10" class="feedback"></span>
+        </div>
+      </li>
 
-<li>To look for animals to eat  
-<br><strong>tnuh</strong> → <input id="s10"> <span id="f10" class="feedback"></span></li>
+      <li>
+        Meaning: to let something fall
+        <div class="scramble">
+          <div class="tiles">
+            <span class="tile">p</span><span class="tile">o</span><span class="tile">r</span><span class="tile">d</span>
+          </div>
+          <div>Answer: <input id="s11" type="text" /></div>
+          <span id="f11" class="feedback"></span>
+        </div>
+      </li>
 
-<li>To let something fall  
-<br><strong>pord</strong> → <input id="s11"> <span id="f11" class="feedback"></span></li>
+      <li>
+        Meaning: to act like something is true when it is not
+        <div class="scramble">
+          <div class="tiles">
+            <span class="tile">d</span><span class="tile">n</span><span class="tile">e</span><span class="tile">r</span><span class="tile">t</span><span class="tile">p</span><span class="tile">e</span>
+          </div>
+          <div>Answer: <input id="s12" type="text" /></div>
+          <span id="f12" class="feedback"></span>
+        </div>
+      </li>
 
-<li>To act like something is true when it is not  
-<br><strong>dnertpe</strong> → <input id="s12"> <span id="f12" class="feedback"></span></li>
+      <li>
+        Meaning: a small animal like a rabbit
+        <div class="scramble">
+          <div class="tiles">
+            <span class="tile">r</span><span class="tile">a</span><span class="tile">e</span><span class="tile">h</span>
+          </div>
+          <div>Answer: <input id="s13" type="text" /></div>
+          <span id="f13" class="feedback"></span>
+        </div>
+      </li>
 
-<li>A small animal like a rabbit  
-<br><strong>raeh</strong> → <input id="s13"> <span id="f13" class="feedback"></span></li>
+      <li>
+        Meaning: a steep edge of land
+        <div class="scramble">
+          <div class="tiles">
+            <span class="tile">f</span><span class="tile">i</span><span class="tile">f</span><span class="tile">c</span><span class="tile">l</span>
+          </div>
+          <div>Answer: <input id="s14" type="text" /></div>
+          <span id="f14" class="feedback"></span>
+        </div>
+      </li>
 
-<li>A steep edge of land  
-<br><strong>fifcl</strong> → <input id="s14"> <span id="f14" class="feedback"></span></li>
+      <li>
+        Meaning: a small animal in the story (similar to a weasel)
+        <div class="scramble">
+          <div class="tiles">
+            <span class="tile">n</span><span class="tile">r</span><span class="tile">t</span><span class="tile">a</span><span class="tile">e</span><span class="tile">m</span>
+          </div>
+          <div>Answer: <input id="s15" type="text" /></div>
+          <span id="f15" class="feedback"></span>
+        </div>
+      </li>
+    </ol>
 
-<li>A clever animal in the story  
-<br><strong>nrtaem</strong> → <input id="s15"> <span id="f15" class="feedback"></span></li>
-</ol>
+    <button onclick="checkSpelling()">Check Part 1</button>
+    <button class="secondary" onclick="resetSpelling()">Reset Part 1</button>
 
-<button onclick="checkSpelling()">Check Answers</button>
-</div>
+    <div class="scorebar">
+      <div class="pill">Part 1 score: <strong id="spellScore">0/15</strong></div>
+      <div class="pill">Tip: If you miss one, look at the letters and try again.</div>
+    </div>
+  </div>
 
-<!-- ================= CONTEXT ================= -->
+  <!-- ================= CONTEXT (10) ================= -->
+  <div class="box">
+    <h2>Part 2: Vocabulary in Context (Choose the best word)</h2>
+    <p>Choose the best word to complete each sentence.</p>
 
-<div class="box">
-<h2>Part 2: Use the Word in Context</h2>
+    <ol>
+      <li>The wolf is a hungry _______.<br>
+        <select id="c1">
+          <option value="">---</option>
+          <option value="beast">beast</option>
+          <option value="feast">feast</option>
+        </select>
+        <span id="cf1" class="feedback"></span>
+      </li>
 
-<p>Choose the best word to complete each sentence.</p>
+      <li>The bear wanted a big _______.<br>
+        <select id="c2">
+          <option value="">---</option>
+          <option value="feast">feast</option>
+          <option value="cliff">cliff</option>
+        </select>
+        <span id="cf2" class="feedback"></span>
+      </li>
 
-<ol>
-<li>The wolf is a hungry _______.  
-<select id="c1">
-<option>---</option><option>beast</option><option>feast</option>
-</select></li>
+      <li>The bear has a _______ paw.<br>
+        <select id="c3">
+          <option value="">---</option>
+          <option value="massive">massive</option>
+          <option value="nervous">nervous</option>
+        </select>
+        <span id="cf3" class="feedback"></span>
+      </li>
 
-<li>The bear wanted a big _______.  
-<select id="c2">
-<option>---</option><option>feast</option><option>cliff</option>
-</select></li>
+      <li>The animals went to _______ for food.<br>
+        <select id="c4">
+          <option value="">---</option>
+          <option value="hunt">hunt</option>
+          <option value="drop">drop</option>
+        </select>
+        <span id="cf4" class="feedback"></span>
+      </li>
 
-<li>The bear has a _______ paw.  
-<select id="c3">
-<option>---</option><option>massive</option><option>nervous</option>
-</select></li>
+      <li>The fox decided to _______ to be dead.<br>
+        <select id="c5">
+          <option value="">---</option>
+          <option value="pretend">pretend</option>
+          <option value="feast">feast</option>
+        </select>
+        <span id="cf5" class="feedback"></span>
+      </li>
 
-<li>The fox went to _______ for food.  
-<select id="c4">
-<option>---</option><option>hunt</option><option>drop</option>
-</select></li>
+      <li>The crow felt _______ when she flew close.<br>
+        <select id="c6">
+          <option value="">---</option>
+          <option value="nervous">nervous</option>
+          <option value="cheerfully">cheerfully</option>
+        </select>
+        <span id="cf6" class="feedback"></span>
+      </li>
 
-<li>The fox decided to _______ to be dead.  
-<select id="c5">
-<option>---</option><option>pretend</option><option>feast</option>
-</select></li>
+      <li>The fox smiled _______.<br>
+        <select id="c7">
+          <option value="">---</option>
+          <option value="cheerfully">cheerfully</option>
+          <option value="reluctantly">reluctantly</option>
+        </select>
+        <span id="cf7" class="feedback"></span>
+      </li>
 
-<li>The crow was _______ when she flew close.  
-<select id="c6">
-<option>---</option><option>nervous</option><option>cheerfully</option>
-</select></li>
+      <li>The fox made the crow _______ from the cliff.<br>
+        <select id="c8">
+          <option value="">---</option>
+          <option value="drop">drop</option>
+          <option value="hunt">hunt</option>
+        </select>
+        <span id="cf8" class="feedback"></span>
+      </li>
 
-<li>The fox smiled _______.  
-<select id="c7">
-<option>---</option><option>cheerfully</option><option>reluctantly</option>
-</select></li>
+      <li>The bear agreed _______ (he didn’t want to).<br>
+        <select id="c9">
+          <option value="">---</option>
+          <option value="reluctantly">reluctantly</option>
+          <option value="tender">tender</option>
+        </select>
+        <span id="cf9" class="feedback"></span>
+      </li>
 
-<li>The fox let the crow _______.  
-<select id="c8">
-<option>---</option><option>drop</option><option>hunt</option>
-</select></li>
+      <li>The crow said the fox would be very _______ to eat.<br>
+        <select id="c10">
+          <option value="">---</option>
+          <option value="tender">tender</option>
+          <option value="massive">massive</option>
+        </select>
+        <span id="cf10" class="feedback"></span>
+      </li>
+    </ol>
 
-<li>The crow agreed _______.  
-<select id="c9">
-<option>---</option><option>reluctantly</option><option>tender</option>
-</select></li>
+    <button onclick="checkContext()">Check Part 2</button>
+    <button class="secondary" onclick="resetContext()">Reset Part 2</button>
 
-<li>The food would be very _______ to eat.  
-<select id="c10">
-<option>---</option><option>tender</option><option>massive</option>
-</select></li>
-</ol>
-</div>
-
-<!-- ================= COMPREHENSION ================= -->
-
-<div class="box">
-<h2>Part 3: Reading Comprehension</h2>
-
-<ol>
-<li>Why did the beasts want to eat the smallest animal?<br>
-<input type="radio" name="q1"> They were hungry<br>
-<input type="radio" name="q1"> They were bored
-</li><br>
-
-<li>What did the fox pretend to do?<br>
-<input type="radio" name="q2"> Pretend to be asleep<br>
-<input type="radio" name="q2"> Pretend to be dead
-</li><br>
-
-<li>Why did the crow fly down?<br>
-<input type="radio" name="q3"> To help the fox<br>
-<input type="radio" name="q3"> To get food
-</li><br>
-
-<li>What lesson does the story teach?<br>
-<input type="radio" name="q4"> Be clever but careful<br>
-<input type="radio" name="q4"> Always trust others
-</li>
-</ol>
-
-<p><strong>Great job!</strong> This practice will help you prepare for your quiz.</p>
-</div>
-
-<script>
-function checkSpelling() {
-  const answers = [
-    "beast","feast","paw","massive","tender","stiff",
-    "nervous","cheerfully","reluctantly","hunt","drop",
-    "pretend","hare","cliff","marten"
-  ];
-  for (let i = 0; i < answers.length; i++) {
-    const input = document.getElementById("s"+(i+1)).value.toLowerCase();
-    document.getElementById("f"+(i+1)).innerHTML =
-      input === answers[i] ? "✔" : "✖";
-  }
-}
-</script>
-
-</body>
-</html>
+    <div class="scorebar">
+      <div class="pill"
