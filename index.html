@@ -86,6 +86,15 @@ select{padding:6px;border-radius:6px;}
 
 hr{border:none;border-top:1px solid #eee;margin:14px 0;}
 
+.qblock{
+  background:#fafafe;
+  border:1px solid #ececf5;
+  padding:10px;
+  border-radius:10px;
+  margin-bottom:12px;
+}
+.tiny{font-size:13px;color:#555;margin-top:6px;}
+
 .footer{
   text-align:center;
   font-size:12px;
@@ -95,6 +104,7 @@ hr{border:none;border-top:1px solid #eee;margin:14px 0;}
 
 .small{font-size:13px;color:#555;}
 .hidden{display:none;}
+.scoreline{font-weight:700;margin-top:8px;}
 </style>
 </head>
 
@@ -128,7 +138,7 @@ hr{border:none;border-top:1px solid #eee;margin:14px 0;}
 <button onclick="checkSpelling()">Check Part 1 ✅</button>
 <button class="secondary" onclick="resetSpelling()">Reset 🔄</button>
 
-<p><strong>Score:</strong> <span id="spellScore">0/15</span> ⭐</p>
+<div class="scoreline">Score: <span id="spellScore">0/15</span> ⭐</div>
 
 <hr>
 
@@ -151,7 +161,7 @@ hr{border:none;border-top:1px solid #eee;margin:14px 0;}
 <!-- PART 2: CONTEXT -->
 <div class="box">
 <h2>Part 2: Vocabulary in Context 🧠</h2>
-<p>Choose the best word to complete each sentence. Some sentences use two vocabulary words. 🙂</p>
+<p>Choose the best word to complete each sentence. 🙂</p>
 
 <ol>
 <li>The wolf is a hungry ______.
@@ -175,7 +185,7 @@ hr{border:none;border-top:1px solid #eee;margin:14px 0;}
 <span id="cf5" class="feedback"></span></li>
 
 <li>The fox tried to ______ the bird.
-<select id="c6"><option></option><option>snap</option><option>hang out</option></select>
+<select id="c6"><option></option><option>snap</option><option>hunt</option></select>
 <span id="cf6" class="feedback"></span></li>
 
 <li>The fox did not move. He was ______.
@@ -183,7 +193,7 @@ hr{border:none;border-top:1px solid #eee;margin:14px 0;}
 <span id="cf7" class="feedback"></span></li>
 
 <li>The crow had to ______ down close to the fox.
-<select id="c8"><option></option><option>stoop</option><option>hunt</option></select>
+<select id="c8"><option></option><option>stoop</option><option>peck</option></select>
 <span id="cf8" class="feedback"></span></li>
 
 <li>The fox dropped the crow near the ______.
@@ -199,6 +209,57 @@ hr{border:none;border-top:1px solid #eee;margin:14px 0;}
 <button class="secondary" onclick="resetContext()">Reset 🔄</button>
 </div>
 
+<!-- PART 3: COMPREHENSION -->
+<div class="box">
+<h2>Part 3: Reading Comprehension 📖</h2>
+<p>Choose the best answer. If you make a mistake, read the tip and try again 😊</p>
+
+<div class="qblock">
+<strong>1) Why did the beasts want to eat the smallest animal?</strong><br>
+<label><input type="radio" name="q1" value="a"> They were hungry.</label><br>
+<label><input type="radio" name="q1" value="b"> They wanted to play.</label>
+<div id="qf1" class="feedback"></div>
+<div id="qh1" class="tiny"></div>
+</div>
+
+<div class="qblock">
+<strong>2) Which animal escaped first?</strong><br>
+<label><input type="radio" name="q2" value="a"> The squirrel.</label><br>
+<label><input type="radio" name="q2" value="b"> The bear.</label>
+<div id="qf2" class="feedback"></div>
+<div id="qh2" class="tiny"></div>
+</div>
+
+<div class="qblock">
+<strong>3) What did the fox pretend to do?</strong><br>
+<label><input type="radio" name="q3" value="a"> He pretended to sleep.</label><br>
+<label><input type="radio" name="q3" value="b"> He pretended to be dead.</label>
+<div id="qf3" class="feedback"></div>
+<div id="qh3" class="tiny"></div>
+</div>
+
+<div class="qblock">
+<strong>4) Why did the crow fly down toward the fox?</strong><br>
+<label><input type="radio" name="q4" value="a"> To peck at his tongue.</label><br>
+<label><input type="radio" name="q4" value="b"> To help him find food.</label>
+<div id="qf4" class="feedback"></div>
+<div id="qh4" class="tiny"></div>
+</div>
+
+<div class="qblock">
+<strong>5) What lesson does the story teach?</strong><br>
+<label><input type="radio" name="q5" value="a"> Be clever, but be careful.</label><br>
+<label><input type="radio" name="q5" value="b"> Always trust everyone.</label>
+<div id="qf5" class="feedback"></div>
+<div id="qh5" class="tiny"></div>
+</div>
+
+<button onclick="checkComprehension()">Check Part 3 ✅</button>
+<button class="secondary" onclick="resetComprehension()">Reset 🔄</button>
+
+<div class="scoreline">Score: <span id="compScore">0/5</span> 🌈</div>
+</div>
+
 <div class="footer">
 👏 Great work! Practice makes you a stronger reader 😊
 </div>
@@ -210,36 +271,27 @@ hr{border:none;border-top:1px solid #eee;margin:14px 0;}
    PART 1: CLICK-TO-UNSCRAMBLE (15 words FROM YOUR SHEET)
    Must include: stoop, pretend, hang out, fail
    ========================================================= */
-
-/* Space tile support:
-   We display a special tile "␠" which adds a real space to the answer.
-*/
 const SPACE_TILE = "␠";
 
 const spellingWords = [
-  // nouns (from sheet)
   {word:"beast", letters:["t","s","e","a","b"], meaning:"a wild animal (noun)"},
   {word:"hare", letters:["e","h","r","a"], meaning:"an animal like a rabbit (noun)"},
   {word:"crow", letters:["w","c","o","r"], meaning:"a black bird (noun)"},
   {word:"cliff", letters:["f","l","i","c","f"], meaning:"a high rock (noun)"},
-  // adjectives / adverbs (from sheet)
   {word:"massive", letters:["e","s","i","v","a","s","m"], meaning:"very big (adjective)"},
   {word:"stiff", letters:["f","t","i","f","s"], meaning:"hard to move (adjective)"},
   {word:"upset", letters:["p","u","e","s","t"], meaning:"worried / not happy (adjective)"},
   {word:"nervously", letters:["l","y","o","u","s","r","v","n","e"], meaning:"in a worried way (adverb)"},
   {word:"reluctantly", letters:["y","t","n","l","t","a","u","c","r","n","e","l","t"], meaning:"not wanting to (adverb)"},
-  // verbs (from sheet)
   {word:"hunt", letters:["n","u","h","t"], meaning:"look for food (verb)"},
   {word:"snap", letters:["p","a","n","s"], meaning:"close mouth fast (verb)"},
   {word:"peck", letters:["k","e","c","p"], meaning:"hit with a beak (verb)"},
   {word:"stoop", letters:["o","p","o","t","s"], meaning:"bend down (verb)"},
   {word:"pretend", letters:["d","n","e","e","r","t","p"], meaning:"act like it is true (verb)"},
   {word:"fail", letters:["l","a","f","i"], meaning:"not succeed (verb)"},
-  // phrase (from sheet)
   {word:"hang out", letters:["a","t",SPACE_TILE,"u","g","h","n","o"], meaning:"spend time together (phrase)"}
 ];
 
-/* Render Part 1 list */
 const list = document.getElementById("spellingList");
 
 spellingWords.forEach((item,i)=>{
@@ -315,7 +367,7 @@ function resetSpelling(){
 }
 
 /* =========================================================
-   CHALLENGE WORD (optional): clearly not on the vocab sheet
+   CHALLENGE WORD (optional): clearly not on vocab sheet
    ========================================================= */
 const bonusWords = [
   {word:"definitely", letters:["t","y","i","e","l","f","i","n","d","e"], meaning:"definitely = for sure (NOT on this week's vocab list)"}
@@ -396,7 +448,7 @@ function toggleChallenge(){
 }
 
 /* =========================================================
-   PART 2: CONTEXT (10 words from list)
+   PART 2: CONTEXT (10 items)
    ========================================================= */
 const ctxAns=[
   "beast","massive","hunt","pretend","peck",
@@ -421,6 +473,52 @@ function resetContext(){
     document.getElementById("c"+(i+1)).value="";
     document.getElementById("cf"+(i+1)).textContent="";
   });
+}
+
+/* =========================================================
+   PART 3: COMPREHENSION (5 questions + helpful tips)
+   ========================================================= */
+const compAnswers={
+  q1:{correct:"a",help:"Tip: At the start, the beasts say there is little food. That is why they want to eat."},
+  q2:{correct:"a",help:"Tip: The smallest animal escapes first in the story."},
+  q3:{correct:"b",help:"Tip: The fox lies still on the ground and acts like he is dead."},
+  q4:{correct:"a",help:"Tip: The crow is hungry and wants to peck at the fox’s tongue."},
+  q5:{correct:"a",help:"Tip: The fox is clever, but his plan is risky. Be clever AND be careful."}
+};
+
+function getRadioValue(name){
+  const r=document.getElementsByName(name);
+  for(let i of r){if(i.checked)return i.value;}
+  return "";
+}
+
+function checkComprehension(){
+  let score=0;
+  Object.keys(compAnswers).forEach((q,i)=>{
+    const chosen=getRadioValue(q);
+    const fb=document.getElementById("qf"+(i+1));
+    const hint=document.getElementById("qh"+(i+1));
+    if(chosen===compAnswers[q].correct){
+      fb.textContent="✔ 😊";
+      fb.className="feedback good";
+      hint.textContent="";
+      score++;
+    }else{
+      fb.textContent="✖ 😕";
+      fb.className="feedback bad";
+      hint.textContent=compAnswers[q].help;
+    }
+  });
+  document.getElementById("compScore").textContent=score+"/5";
+}
+
+function resetComprehension(){
+  Object.keys(compAnswers).forEach((q,i)=>{
+    document.getElementsByName(q).forEach(r=>r.checked=false);
+    document.getElementById("qf"+(i+1)).textContent="";
+    document.getElementById("qh"+(i+1)).textContent="";
+  });
+  document.getElementById("compScore").textContent="0/5";
 }
 </script>
 
